@@ -1,6 +1,10 @@
 import { Button } from "@/components/ui/button";
 
-export const Hero = () => {
+interface HeroProps {
+  onBuyNowClick: () => void;
+}
+
+export const Hero = ({ onBuyNowClick }: HeroProps) => {
   return (
     <section className="relative min-h-[calc(100vh-4rem)] flex items-center">
       <img
@@ -18,7 +22,11 @@ export const Hero = () => {
           <p className="text-xl mb-8 text-muted-foreground">
             Tailormade: Redefining Style, One Stitch at a Time.
           </p>
-          <Button size="lg" className="text-lg px-8">
+          <Button 
+            size="lg" 
+            className="text-lg px-8"
+            onClick={onBuyNowClick}
+          >
             Buy Now
           </Button>
         </div>

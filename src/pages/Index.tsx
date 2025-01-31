@@ -6,10 +6,14 @@ import { useState } from "react";
 const Index = () => {
   const [showPaymentSuccess, setShowPaymentSuccess] = useState(false);
 
+  const handleBuyNowClick = () => {
+    setShowPaymentSuccess(true);
+  };
+
   return (
     <main className="min-h-screen flex flex-col">
       <Navigation />
-      <Hero />
+      <Hero onBuyNowClick={handleBuyNowClick} />
       <PaymentSuccessOverlay
         isOpen={showPaymentSuccess}
         onClose={() => setShowPaymentSuccess(false)}
