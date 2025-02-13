@@ -1,7 +1,12 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { LoginForm } from "@/components/auth/LoginForm";
 
 export const Navigation = () => {
+  const [showLoginForm, setShowLoginForm] = useState(false);
+
   return (
     <nav className="w-full py-4 px-6 bg-background border-b">
       <div className="container mx-auto flex items-center justify-between">
@@ -41,9 +46,17 @@ export const Navigation = () => {
             alt="User"
             className="h-6 w-6"
           />
-          <Button variant="ghost" className="text-foreground hover:text-primary transition-colors">
+          <Button 
+            variant="ghost" 
+            className="text-foreground hover:text-primary transition-colors"
+            onClick={() => setShowLoginForm(true)}
+          >
             Login/Sign Up
           </Button>
+          <LoginForm 
+            isOpen={showLoginForm} 
+            onClose={() => setShowLoginForm(false)} 
+          />
         </div>
       </div>
     </nav>
